@@ -68,13 +68,13 @@ class AnomalyDetector(object):
         :param time_series: a TimeSeries, a dictionary or a path to a csv file(str).
         :return TimeSeries: a TimeSeries object.
         """
-        if not time_series:
+        if not len(time_series):
             return None
         if isinstance(time_series, TimeSeries):
             return time_series
         if isinstance(time_series, dict):
             return TimeSeries(time_series)
-        return TimeSeries(utils.read_csv(time_series))
+        return TimeSeries(time_series)
 
     def _get_algorithm(self, algorithm_name):
         """
